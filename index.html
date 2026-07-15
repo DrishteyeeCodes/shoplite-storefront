@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopLite — MVP Storefront</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🛍️ ShopLite</h1>
+      <div class="header-actions">
+        <button id="toggleSidebarBtn" class="btn btn-outline" aria-label="Toggle wishlists">
+          ❤️ Wishlists
+        </button>
+        <button id="toggleCartBtn" class="btn btn-outline cart-btn" aria-label="Open cart">
+          🛒 Cart
+          <span id="cartBadge" class="cart-badge hidden">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ===== Main content: Product Grid ===== -->
+    <main class="main-content">
+      <section class="section-heading">
+        <h2>Our Products</h2>
+        <p class="muted">Add your favorites to a wishlist, then merge wishlists below.</p>
+      </section>
+
+      <div id="productGrid" class="product-grid">
+        <!-- Product cards injected by ui.js -->
+      </div>
+
+      <!-- ===== Merge Section ===== -->
+      <section id="mergeSection" class="merge-section">
+        <h2>Merge Wishlists</h2>
+        <p class="muted">Combine two wishlists into a brand-new one. Duplicate products are removed automatically.</p>
+
+        <div class="merge-controls">
+          <div class="merge-select-group">
+            <label for="mergeSelectA">Wishlist A</label>
+            <select id="mergeSelectA"></select>
+          </div>
+
+          <div class="merge-select-group">
+            <label for="mergeSelectB">Wishlist B</label>
+            <select id="mergeSelectB"></select>
+          </div>
+
+          <button id="mergeBtn" class="btn btn-primary">Merge Wishlists</button>
+        </div>
+
+        <div id="mergeEmptyState" class="empty-state hidden">
+          <p>You need at least two wishlists to merge. Create some first!</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Wishlist Sidebar ===== -->
+    <aside id="wishlistSidebar" class="wishlist-sidebar">
+      <div class="sidebar-header">
+        <h2>Wishlists</h2>
+        <button id="closeSidebarBtn" class="btn btn-icon" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <form id="createWishlistForm" class="create-wishlist-form">
+        <input
+          id="newWishlistName"
+          type="text"
+          placeholder="New wishlist name..."
+          maxlength="40"
+          required
+        />
+        <button type="submit" class="btn btn-primary">+ Create</button>
+      </form>
+
+      <div id="wishlistList" class="wishlist-list">
+        <!-- Wishlist cards injected by ui.js -->
+      </div>
+
+      <div id="sidebarEmptyState" class="empty-state hidden">
+        <p>No wishlists yet. Create your first one above!</p>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+  </div>
+
+  <!-- ===== Cart Drawer (slides in from the right, any screen size) ===== -->
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="sidebar-header">
+      <h2>Your Cart</h2>
+      <button id="closeCartBtn" class="btn btn-icon" aria-label="Close cart">✕</button>
+    </div>
+
+    <div id="cartEmptyState" class="empty-state hidden">
+      <p>🛒 There are no products in your cart yet.</p>
+      <p class="muted">Browse the storefront and add something you like!</p>
+      <button id="cartEmptyBrowseBtn" class="btn btn-primary">Browse Products</button>
+    </div>
+
+    <div id="cartItemList" class="cart-item-list">
+      <!-- Cart line items injected by ui.js -->
+    </div>
+
+    <div id="cartFooter" class="cart-footer hidden">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="clearCartBtn" class="btn btn-danger btn-small">Clear Cart</button>
+      <button id="checkoutBtn" class="btn btn-primary">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Overlay for cart drawer -->
+  <div id="cartOverlay" class="sidebar-overlay hidden"></div>
+
+  <!-- ===== Toast Container ===== -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <p>ShopLite MVP &mdash; built with HTML, CSS &amp; vanilla JS.</p>
+  </footer>
+
+  <!-- Entry point: ES6 module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
