@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ShopLite — MVP E-Commerce Storefront
 
 A lightweight e-commerce storefront demo built with **only HTML, CSS, and vanilla JavaScript** (ES6 modules). No frameworks, no build step, no dependencies.
@@ -79,3 +80,7 @@ No build step or configuration changes are needed — the project runs exactly a
 - Product images are loaded from `https://placehold.co` placeholder image URLs — replace `data.js`'s `image` fields with your own paths (e.g. `assets/images/product1.jpg`) if you'd like to use local images.
 - All wishlist state lives under the `shoplite_wishlists_v1` key in `localStorage`. Clearing your browser storage will reset wishlists back to empty.
 - No external libraries or CDNs are required for the app to function.
+=======
+# shoplite-storefront
+A lightweight, framework-free e-commerce storefront built with plain HTML, modern CSS, and modular ES6 JavaScript. Designed for high-performance client-side interaction, it features an unauthenticated wishlist system capable of merging distinct list payloads via encoded share tokens using set deduplication logic. 
+>>>>>>> 348ae268086b4e60065ad82b743602f531a2ae6b
